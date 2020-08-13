@@ -2,12 +2,15 @@
 #include <queue>
 using namespace std;
 #include "BinaryTreeNode.h"
-#include "BinaryTreeNodeSum.h"
+
+/*#include "BinaryTreeNodeSum.h"
 #include "BalanceCheck.h"
 #include <bits/stdc++.h>
 #include "checkBST.h"
 #include "checkBST2.h"
 #include "checkBST3.h"
+*/
+#include "RootToNodePath.h"
 
 BinaryTreeNode<int> *takeinputLevelWise()
 {
@@ -209,18 +212,10 @@ int main()
 	BinaryTreeNode<int> *root = takeinputLevelWise();
 	printLevelWise(root);
 	cout<<"Num:"<<numNodes(root)<<endl;
-	if(isBST(root))
-		cout<<"Yes";
-	else
-		cout<<"NOT BST";
+	
+	vector<int>*arr = RootToNode(root,13);
 
-	if(isBST2(root).isBST)
-		cout<<"\nYes";
-	else
-		cout<<"\nNOT BST";
-	if(isBST3(root))
-		cout<<"\nYes";
-	else
-		cout<<"\nNOT BST";
-	delete root;
+	for(int i = 0; i < arr -> size(); i++)
+		cout<<arr ->at(i)<<" ";
+
 }
